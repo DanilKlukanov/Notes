@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notes.MainPage">
+    <StackLayout>
+        <ScrollView>
+            <Grid>
+                <!--<Grid.Background>
+                    <LinearGradientBrush StartPoint="0.1" EndPoint="1.1">
+                        <GradientStop Color="Azure" Offset="0.1"></GradientStop>
+                        <GradientStop Color="Black" Offset="0.3"></GradientStop>
+                    </LinearGradientBrush>
+                </Grid.Background>-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackLayout x:Name="Col1"
+                  Grid.Column="0"
+                  BackgroundColor="Red"
+                  VerticalOptions="Start"
+                  SizeChanged="Col1_SizeChanged">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="7">
+                                
+                                <Frame Padding="7"
+                                       ClassId="{Binding Id}">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Tapped"
+                                                              CommandParameter="{Binding Id}">
+                                        </TapGestureRecognizer>
+                                        <PanGestureRecognizer PanUpdated="PanUpdated">
+                                            
+                                        </PanGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                    <Label Text="{Binding Text}"
+                                   LineBreakMode="WordWrap" />
+                                </Frame>
+                                
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+                <StackLayout x:Name="Col2"
+                     Grid.Column="1"
+                     BackgroundColor="Aqua"
+                     VerticalOptions="Start"
+                     SizeChanged="Col2_SizeChanged">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="7">
+                                
+                                <Frame Padding="7"
+                                       ClassId="{Binding Id}">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Tapped"
+                                                              CommandParameter="{Binding Id}">
+                                        </TapGestureRecognizer>
+                                        <PanGestureRecognizer PanUpdated="PanUpdated">
+
+                                        </PanGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                    <Label Text="{Binding Text}"
+                                   LineBreakMode="WordWrap" />
+                                </Frame>
+                                
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+        <Button Grid.Column="1"
+                Text="+"
+                HorizontalOptions="EndAndExpand" 
+                VerticalOptions="EndAndExpand"
+                WidthRequest="50" 
+                CornerRadius="25"
+                HeightRequest="50"
+                Margin="5"
+                Clicked="Button_Clicked"/>
+    </StackLayout>
+</ContentPage>
